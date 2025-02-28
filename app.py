@@ -2,7 +2,7 @@ import os
 from altair import themes
 import streamlit as st
 import pandas as pd
-import plotly_express as px
+import plotly.express as px
 
 data_car_sales=pd.read_csv('vehicles_us.csv')
 
@@ -41,11 +41,11 @@ if normalize:
     histnorm='percent'
 else:
     histnorm=None
-    fig=px.histogram(df_filtered,
+fig=px.histogram(df_filtered,
                      x='price',
                      nbins=30,
                      color='manufacturer',
                      histnorm=histnorm,
                      barmode='overlay')
     
-    st.write(fig)
+st.write(fig)
