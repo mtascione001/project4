@@ -1,35 +1,24 @@
 import os
-<<<<<<< HEAD
 from altair import themes
-=======
->>>>>>> 9ec640a (2nd commit)
 import streamlit as st
 import pandas as pd
 import plotly_express as px
 
 data_car_sales=pd.read_csv('vehicles_us.csv')
 
-<<<<<<< HEAD
-[themes]
-primaryColor="#e20707"
-backgroundColor="#121111"
-secondaryBackgroundColor="#ef2a02"
-textColor="#fafafb"
-
 
 data_car_sales['manufacturer']=data_car_sales['model'].apply(lambda x: x.split()[0])
 st.header('Data Viewer', divider=True, color='black')
-=======
 data_car_sales['manufacturer']=data_car_sales['model'].apply(lambda x: x.split()[0])
 st.header('Data Viewer', divider=True)
->>>>>>> 9ec640a (2nd commit)
 st.dataframe(data_car_sales)
+
 
 st.header('Vehicle types by manufacturer')
 fig=px.histogram(data_car_sales, x='manufacturer', color='type')
 st.write(fig)
 
-st.header("Histogram of 'condition' vs 'model_year'")
+st.header("Histogram of condition vs model_year")
 fig=px.histogram(data_car_sales,'model_year', color='condition')
 st.write(fig)
 
@@ -40,11 +29,7 @@ manufacturer_1=st.selectbox(label='Select manufacturer 1',
                             index=manufac_list.index('chevrolet')
 )
 manufacturer_2=st.selectbox(label='Select manufacturer 2',
-<<<<<<< HEAD
                             options=manufac_list,
-=======
-                            options=manufac+list,
->>>>>>> 9ec640a (2nd commit)
                             index=manufac_list.index('hyundai')
                             )
 mask_filter=(data_car_sales['manufacturer'])==manufacturer_1 | (data_car_sales['manufacturer']==manufacturer_2)
