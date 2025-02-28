@@ -7,8 +7,8 @@ import plotly_express as px
 data_car_sales=pd.read_csv('vehicles_us.csv')
 
 
-data_car_sales['manufacturer']=data_car_sales['model'].apply(lambda x: x.split()[0])
-st.header('Data Viewer', divider=True, color='black')
+#data_car_sales['manufacturer']=data_car_sales['model'].apply(lambda x: x.split()[0])
+#st.header('Data Viewer', divider=True, color='black')
 data_car_sales['manufacturer']=data_car_sales['model'].apply(lambda x: x.split()[0])
 st.header('Data Viewer', divider=True)
 st.dataframe(data_car_sales)
@@ -32,7 +32,7 @@ manufacturer_2=st.selectbox(label='Select manufacturer 2',
                             options=manufac_list,
                             index=manufac_list.index('hyundai')
                             )
-mask_filter=(data_car_sales['manufacturer'])==manufacturer_1 | (data_car_sales['manufacturer']==manufacturer_2)
+mask_filter=((data_car_sales['manufacturer']==manufacturer_1) | (data_car_sales['manufacturer']==manufacturer_2))
 df_filtered=data_car_sales[mask_filter]
 
 
